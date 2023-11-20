@@ -45,9 +45,11 @@
             case 'updatedm':
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
                     $tendanhmuc=$_POST['tendanhmuc'];
-                    $iddm=$_POST['iddm'];
                     $trangthai=$_POST['trangthai'];
-                    update_danhmuc($iddm,$tendanhmuc,$trangthai);
+                    $iddm=$_POST['iddm'];
+                    $sql = "UPDATE danhmuc SET tendanhmuc='".$tendanhmuc."', trangthai='".$trangthai."' WHERE iddm=".$iddm;
+                    //update_danhmuc($iddm,$tendanhmuc,$trangthai);
+                    pdo_execute($sql);
                     $thongbao="Cập nhật thành công";
                 }
                 $listdanhmuc=loadall_danhmuc();

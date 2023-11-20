@@ -1,8 +1,8 @@
-<?php
+ <?php
     if(is_array($dm)){
         extract($dm);
     }
-?>
+?> 
 <div style="margin-left: 10px;" class="row2">
          <div class="row2 font_title">
           <h1>CẬP NHẬT DANH MỤC</h1>

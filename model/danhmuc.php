@@ -18,7 +18,7 @@ function loadall_danhmuc(){
         return $dm;
     }
     function update_danhmuc($iddm,$tendanhmuc,$trangthai){
-        $sql = "UPDATE danhmuc SET tendanhmuc='".$tendanhmuc."' and trangthai = '".$trangthai."' WHERE iddm=".$iddm;
+        $sql = "UPDATE danhmuc SET tendanhmuc='".$tendanhmuc."', trangthai='".$trangthai."' WHERE iddm=".$iddm;
         pdo_execute($sql);
         
     }
