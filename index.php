@@ -1,17 +1,11 @@
 <?php
     session_start();
-    include "model/pdo.php";
-    include "model/sanpham.php";
-    include "model/danhmuc.php";
-    include "model/binhluan.php";
-    include "model/taikhoan.php";
+    
 
     include "view/header.php";
     include "global.php";
 
-    $spnew = loadall_sanpham_home();
-    $dsdm = loadall_danhmuc();
-    $dstop10 = loadall_sanpham_top10();
+
 
     if(isset($_GET['act'])&&($_GET['act']!="")){
         $act=$_GET['act'];
