@@ -5,6 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin dự án 1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
+    <style>   
+    table {  
+        border-collapse: collapse; 
+        
+    }  
+    .inline{   
+        display: inline-block;   
+        margin-right: 20px;
+        margin: 20px 0px;   
+    }            
+    input, button{   
+        height: 34px;
+           
+    }    
+    .items {   
+        display: inline-block;   
+    }   
+    .items a {   
+        font-weight:bold;   
+        font-size:18px;   
+        color: black;   
+        float: left;   
+        padding: 8px 16px;   
+        text-decoration: none;   
+        border:1px solid black;  
+        margin: 2px; 
+    }   
+    .items a .active {   
+            background-color: red; 
+            margin: 20px;  
+    }   
+    .items a:hover:not(.active) {   
+        background-color: #87ceeb;   
+    }   
+        </style>  
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">

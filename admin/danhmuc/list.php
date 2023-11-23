@@ -5,24 +5,24 @@
          <div class="row2 form_content ">
           <form action="#" method="POST">
            <div class="row2 mb10 formds_loai">
-           <table>
+           <table class="table table-striped table-condensed table-bordered">
             <tr>
                 <th></th>
-                <th style="color:cornflowerblue">MÃ LOẠI</th>
-                <th style="color: burlywood;">TÊN DANH MỤC</th>
-                <th style="color:crimson">TRẠNG THÁI</th>
-                <th></th>
+                <th style="font-size:15px;">MÃ LOẠI</th>
+                <th style="font-size:15px;">TÊN DANH MỤC</th>
+                <th style="font-size:15px;">TRẠNG THÁI</th>
+                <th style="font-size:15px;">Action</th>
             </tr>
             <?php
                 foreach($listdanhmuc as $danhmuc){
                     extract($danhmuc);
                     $suadm="index.php?act=suadm&iddm=".$iddm;
                     $xoadm="index.php?act=xoadm&iddm=".$iddm;
-                    echo '<tr>
+                    echo '<tr style="font-size:15px;">
                         <td><input type="checkbox" name="" id=""></td>
-                        <td style="color: cornflowerblue">'.$iddm.'</td>
-                        <td style="color: burlywood;">'.$tendanhmuc.'</td>
-                        <td style="color:crimson">'.$trangthai.'</td>
+                        <td>'.$iddm.'</td>
+                        <td>'.$tendanhmuc.'</td>
+                        <td>'.$trangthai.'</td>
                         <td><a href="'.$suadm.'"><input type="button" value="Sửa"></a>   
                             <a href="'.$xoadm.'"><input type="button" value="Xóa"></a></td>
                         </tr>';

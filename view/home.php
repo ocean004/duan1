@@ -135,10 +135,7 @@
 								
 							}		
 						for($page_number = 1; $page_number<= $total_pages; $page_number++) {  
-							echo '<a style="margin:25px;color:red; text-decoration: underline;font-size: 20px;" style="color:red"  href = "index.php?page=' . $page_number . '">' . $page_number . ' </a>'; 
-							
-							
-							 
+							echo '<a style="margin:25px;color:red; text-decoration: underline;font-size: 20px;" style="color:red"  href = "index.php?page=' . $page_number . '">' . $page_number . ' </a>'; 																			 
 						} 
 					?>			
 					<!-- /grid_item -->

@@ -46,44 +46,67 @@
                 break;
             case 'dangky':
                 if(isset($_POST['dangky']) && $_POST['dangky']){
-                    $email = $_POST['email'];
-                    $user = $_POST['user'];
+                    $tendangnhapError = "";
+                    $passError = "";
+                    $emailError = "";
+                    $diachiError = "";
+                    $sdtError = "";
+                    if(isset($_POST['submit'])){
+                        if(empty($_POST['tendangnhap'])){
+                            $tendangnhapError = "Vui lòng nhập tên đăng nhập!";
+                        }
+                        if(empty($_POST['pass'])){
+                            $passError = "Vui lòng nhập mật khẩu!";
+                        }
+                        if(empty($_POST['email'])){
+                            $emailError = "Vui lòng nhập email!";
+                        }
+                        if(empty($_POST['diachi'])){
+                            $diachiError = "Vui lòng nhập địa chỉ!";
+                        }
+                        if(empty($_POST['sdt'])){
+                            $sdtError = "Vui lòng nhập tên số điện thoại!";
+                        }
+                    }
+                }else{
+                    $tendangnhap = $_POST['tendangnhap'];
                     $pass = $_POST['pass'];
-                    insert_taikhoan($email,$user,$pass);
+                    $email = $_POST['email'];
+                    $diachi = $_POST['diachi'];
+                    $sdt = $_POST['sdt'];
+                    insert_taikhoan($tendangnhap,$pass,$email,$diachi,$sdt);
                     $thongbao = "Đăng ký thành công";
                 }
                 include "view/taikhoan/dangky.php";
                 break;
             case 'dangnhap':
                 if(isset($_POST['dangnhap']) && ($_POST['dangnhap'])){
-                    $user = $_POST['user'];
+                    $tendangnhap = $_POST['tendangnhap'];
                     $pass = $_POST['pass'];
-                    $checkuser = checkuser($user,$pass);
+                    $checkuser = checkuser($tendangnhap,$pass);
                     if(is_array($checkuser)){
-                        $_SESSION['user'] = $checkuser;                     
+                        $_SESSION['tendangnhap'] = $checkuser;                     
                         //$thongbao = "Đăng nhập thành công";
                         header('Location: index.php');
                     }else{
-                        $thongbao = "Tài khoản hoặc mật khẩu không đúng. Vui lòng kiểm tra hoặc đăng ký!";
-                    }
-                    
+                        $thongbao = "Tài khoản hoặc mật khẩu không đúng!";
+                        
+                    }               
                 }
                 include "view/taikhoan/dangky.php";
                 break;
             case 'edit_taikhoan':
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
-                    $user = $_POST['user'];
+                    $tendangnhap = $_POST['tendangnhap'];
                     $pass = $_POST['pass'];
                     $email = $_POST['email'];
-                    $address = $_POST['address'];
-                    $tel = $_POST['tel'];
-                    $id = $_POST['id'];
+                    $diachi = $_POST['diachi'];
+                    $sdt = $_POST['sdt'];
+                    $iduser = $_POST['iduser'];
                     
-                    update_taikhoan($id,$user,$pass,$email,$address,$tel); 
-                    $_SESSION['user'] = checkuser($user,$pass);              
-                    header('Location: index.php?act=edit_taikhoan');
-                    
-                    
+                    update_taikhoan($iduser,$tendangnhap,$pass,$email,$diachi,$sdt); 
+                    $_SESSION['tendangnhap'] = checkuser($tendangnhap,$pass);              
+                    header('Location: index.php?act=edit_taikhoan');                                    
                 }
                 include "view/taikhoan/edit_taikhoan.php";
                 break;
@@ -103,27 +126,14 @@
                     
                 }
                 include "view/taikhoan/quenmk.php";
-                break;
-            case 'page':
-                $page = $_GET['page'];
-                $limit = 3;
-                if(($page)){
-                    $start = ($page -1)*$limit;
-                    
-                }else{
-                    $start = 0;
-                    
-                }
+                break;          
             case 'thoat':
                 session_unset();
                 header('Location: index.php');
-                break;
-
-            
+                break;           
         }
     }else{
         include "view/home.php";
     }
-   
     include "view/footer.php";
 ?>
