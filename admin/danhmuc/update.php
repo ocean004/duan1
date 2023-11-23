@@ -15,7 +15,7 @@
            </div>
            <div class="row2 mb10">
             <label>Tên loại </label> <br>
-            <input type="text" name="tenloai" value="<?php if(isset($tendanhmuc)&&($tendanhmuc!="")) echo $tendanhmuc;?>" >
+            <input type="text" name="tendanhmuc" value="<?php if(isset($tendanhmuc)&&($tendanhmuc!="")) echo $tendanhmuc;?>" >
            </div>
            <div class="row2 mb10">
             <label>Trạng thái </label> <br>

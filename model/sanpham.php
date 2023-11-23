@@ -1,14 +1,14 @@
 <?php
-function insert_sanpham($tensp,$giasp,$hinh,$mota,$iddm){
-    $sql = "INSERT INTO sanpham(name,price,img,mota,iddm) VALUES('$tensp','$giasp','$hinh','$mota','$iddm')";
+function insert_sanpham($tensanpham,$giagoc,$giakm,$hinh,$ngonngu,$tacgia,$nhaxuatban,$sotrang,$kichthuoc,$mota,$ngayphathanh,$iddmuc){
+    $sql = "INSERT INTO sanpham(tensanpham,giagoc,giakm,image,ngonngu,tacgia,nhaxuatban,sotrang,kichthuoc,mota,ngayphathanh,iddmuc) VALUES('$tensanpham','$giagoc','$giakm','$hinh','$ngonngu','$tacgia','$nhaxuatban','$sotrang','$kichthuoc','$mota','$ngayphathanh','$iddmuc')";
     pdo_execute($sql);
 }
-function delete_sanpham($id){
-    $sql = "DELETE FROM sanpham WHERE id=".$id;
+function delete_sanpham($idsp){
+    $sql = "DELETE FROM sanpham WHERE idsp=".$idsp;
     pdo_execute($sql);
 }
-function loadall_sanpham_home(){
-    $sql="select * from sanpham where 1 order by id desc limit 0,9";
+function loadall_sanpham_home(){  //phân trang làm ở đây
+    $sql="select * from sanpham where 1 order by idsp asc";
     $listsanpham=pdo_query($sql);
     return  $listsanpham;
 }
@@ -17,39 +17,39 @@ function loadall_sanpham_top10(){
     $listsanpham=pdo_query($sql);
     return $listsanpham;
 }
-function loadall_sanpham($keyw="",$iddm=0){
+function loadall_sanpham($keyw="",$iddmuc=0){
     $sql="select * from sanpham where 1";
     // where 1 tức là nó đúng
     if($keyw!=""){
         $sql.=" and name like '%".$keyw."%'";
     }
-    if($iddm>0){
-        $sql.=" and iddm ='".$iddm."'";
+    if($iddmuc>0){
+        $sql.=" and iddmuc='".$iddmuc."'";
     }
-    $sql.=" order by id desc";
+    $sql.=" order by idsp desc";
     $listsanpham=pdo_query($sql);
     return  $listsanpham;
 }
-function loadone_sanpham($id){
-    $sql = "select * from sanpham where id = $id";
+function loadone_sanpham($idsp){
+    $sql = "select * from sanpham where idsp = $idsp";
     $result = pdo_query_one($sql);
     return $result;
 }
-function load_sanpham_cungloai($id, $iddm){
-    $sql = "select * from sanpham where iddm = $iddm and id <> $id";//<> là khác
+function load_sanpham_cungloai($idsp, $iddmuc){
+    $sql = "select * from sanpham where iddmuc = $iddmuc and idsp <> $idsp";//<> là khác
     $result = pdo_query($sql);
     return $result;
 }
-    function loadone_sanpham_sp($id){
-        $sql= "SELECT * FROM sanpham WHERE id=".$id;
+    function loadone_sanpham_sp($idsp){
+        $sql= "SELECT * FROM sanpham WHERE idsp=".$idsp;
         $sp=pdo_query_one($sql);
         return $sp;
     }
-    function update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinh){
+    function update_sanpham($idsp,$iddmuc,$tensanpham,$giagoc,$giakm,$hinh,$ngonngu,$tacgia,$nhaxuatban,$sotrang,$kichthuoc,$mota,$ngayphathanh){
         if($hinh!="")
-            $sql = "UPDATE sanpham SET iddm='".$iddm."', name='".$tensp."', price='".$giasp."', mota='".$mota."', img='".$hinh."' WHERE id=".$id;
+            $sql = "UPDATE sanpham SET iddmuc='".$iddmuc."', tensanpham='".$tensanpham."', giagoc='".$giagoc."', giakm='".$giakm."', image='".$hinh."', ngonngu='".$ngonngu."', tacgia='".$tacgia."', nhaxuatban='".$nhaxuatban."', sotrang='".$sotrang."', kichthuoc='".$kichthuoc."', mota='".$mota."', ngayphathanh='".$ngayphathanh."' WHERE idsp=".$idsp;
         else
-            $sql = "UPDATE sanpham SET iddm='".$iddm."', name='".$tensp."', price='".$giasp."', mota='".$mota."' WHERE id=".$id;
+            $sql = "UPDATE sanpham SET iddmuc='".$iddmuc."', tensanpham='".$tensanpham."', giagoc='".$giagoc."', giakm='".$giakm."', ngonngu='".$ngonngu."', tacgia='".$tacgia."', nhaxuatban='".$nhaxuatban."', sotrang='".$sotrang."', kichthuoc='".$kichthuoc."', mota='".$mota."', ngayphathanh='".$ngayphathanh."' WHERE idsp=".$idsp;
         pdo_execute($sql);
         
     }

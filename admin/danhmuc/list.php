@@ -8,7 +8,7 @@
            <table>
             <tr>
                 <th></th>
-                <th style="color:cornflowerblue">ID DANH MỤC</th>
+                <th style="color:cornflowerblue">MÃ LOẠI</th>
                 <th style="color: burlywood;">TÊN DANH MỤC</th>
                 <th style="color:crimson">TRẠNG THÁI</th>
                 <th></th>

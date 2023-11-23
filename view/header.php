@@ -7,8 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Ansonika">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Mua sách Online nhanh nhất</title>
-
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<style>
+		
+	</style>
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
@@ -36,9 +41,10 @@
 <body>
 	
 	<div id="page">
-		
+	
 	<header class="version_1">
 		<div class="layer"></div><!-- Mobile menu overlay mask -->
+		
 		<div class="main_header">
 			<div class="container">
 				<div class="row small-gutters">
@@ -63,8 +69,10 @@
 							</div>
 							<ul>
 								<li class="">
-									<a href="index.html" class="show-submenu">Home</a>
-									
+									<a href="./index.php" class="show-submenu">Home</a>
+									<ul>
+										<li><a href="./admin/index.php">Admin</a></li>												
+									</ul>								
 								</li>
 								<li class="megamenu submenu">
 									<a href="#" class="show-submenu-mega">Danh mục</a>
@@ -73,23 +81,19 @@
 											<div class="col-lg-3">
 												<h3>Sách Trong Nước</h3>
 												<ul>
-													<li><a href="listing-grid-1-full.html">#</a></li>
-													
+													<li><a href="listing-grid-1-full.html">#</a></li>												
 												</ul>
 											</div>
 											<div class="col-lg-3">
 												<h3>Sách Nước Ngoài</h3>
 												<ul>
-													<li><a href="listing-row-1-sidebar-left.html">#</a></li>
-												
+													<li><a href="listing-row-1-sidebar-left.html">#</a></li>												
 												</ul>
 											</div>
 											<div class="col-lg-3">
 												<h3>Truyện</h3>
 												<ul>
-													<li><a href="cart.html">#</a></li>
-													
-													
+													<li><a href="cart.html">#</a></li>													
 												</ul>
 											</div>
 											
@@ -118,6 +122,7 @@
 				<!-- /row -->
 			</div>
 		</div>
+		
 		<!-- /main_header -->
 
 		<div class="main_nav Sticky">

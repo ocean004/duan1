@@ -1,4 +1,19 @@
 <?php
+$server_name = "localhost";
+
+$user_name = "root";
+
+$password = "";
+
+$db="duan1";
+
+$conn = mysqli_connect($server_name, $user_name, $password,$db);
+
+if (!$conn) {
+
+    die("Connection failed: " . mysqli_connect_error());
+
+}
 function pdo_get_connection(){
     $servername = "localhost";
     $username = "root";

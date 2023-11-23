@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự án 1</title>
+    <title>Admin dự án 1</title>
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
@@ -36,7 +36,7 @@
        <!-- BIGIN HEADER -->
        <header>
             <div class="admin">
-                <h1 style="background-color: aqua">Admin</h1>
+                <h1 style="background-color: aqua; text-align:center">Admin</h1>
             </div>
             <div class="main_header" style="background-color: coral">
                 <div class="container">
@@ -50,7 +50,7 @@
                                         <a href="index.php?act=adddm" class="hov">Danh mục</a>
                                     </li>
                                     <li class="">
-                                        <a href="index.php?act=addsp" class="hov">Hàng hóa</a>									
+                                        <a href="index.php?act=addsp" class="hov">Sản phẩm</a>									
                                     </li>
                                     <li class="">
                                         <a href="index.php?act=dskh" class="hov">Tài khoản</a>									

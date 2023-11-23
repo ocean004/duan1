@@ -1,11 +1,17 @@
 <?php
-    session_start();
-    
+    session_start(); 
+    include "model/pdo.php";
+    include "model/sanpham.php";
+    include "model/danhmuc.php";
+    include "model/binhluan.php";
+    include "model/taikhoan.php";
 
     include "view/header.php";
     include "global.php";
 
-
+    $spnew = loadall_sanpham_home();
+    $dsdm = loadall_danhmuc();
+    
 
     if(isset($_GET['act'])&&($_GET['act']!="")){
         $act=$_GET['act'];
@@ -98,6 +104,16 @@
                 }
                 include "view/taikhoan/quenmk.php";
                 break;
+            case 'page':
+                $page = $_GET['page'];
+                $limit = 3;
+                if(($page)){
+                    $start = ($page -1)*$limit;
+                    
+                }else{
+                    $start = 0;
+                    
+                }
             case 'thoat':
                 session_unset();
                 header('Location: index.php');

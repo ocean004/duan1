@@ -47,7 +47,7 @@
                     $tendanhmuc=$_POST['tendanhmuc'];
                     $trangthai=$_POST['trangthai'];
                     $iddm=$_POST['iddm'];
-                    $sql = "UPDATE danhmuc SET tendanhmuc='".$tendanhmuc."', trangthai='".$trangthai."' WHERE iddm=".$iddm;
+                    $sql = "UPDATE danhmuc SET iddm='".$iddm."', tendanhmuc='".$tendanhmuc."', trangthai='".$trangthai."' WHERE iddm=".$iddm;
                     //update_danhmuc($iddm,$tendanhmuc,$trangthai);
                     pdo_execute($sql);
                     $thongbao="Cập nhật thành công";
@@ -59,9 +59,16 @@
                 /* CONTROLLER SAN PHAM */
                 case 'addsp':
                     if(isset($_POST['themmoi']) && ($_POST['themmoi'])){
-                        $iddm=$_POST['iddm'];
-                        $tensp=$_POST['tensp'];
-                        $giasp=$_POST['giasp'];
+                        $iddmuc=$_POST['iddmuc'];
+                        $tensanpham=$_POST['tensanpham'];
+                        $giagoc=$_POST['giagoc'];
+                        $giakm=$_POST['giakm'];
+                        $ngonngu=$_POST['ngonngu'];
+                        $tacgia=$_POST['tacgia'];
+                        $nhaxuatban=$_POST['nhaxuatban'];
+                        $sotrang=$_POST['sotrang'];
+                        $kichthuoc=$_POST['kichthuoc'];                       
+                        $ngayphathanh=$_POST['ngayphathanh'];
                         $mota=$_POST['mota'];
                         $hinh=$_FILES['hinh']['name'];
                         $target_dir = "../upload/";
@@ -71,7 +78,7 @@
                         }else{
                            // echo "sorry, there was an error";
                         }
-                        insert_sanpham($tensp,$giasp,$hinh,$mota,$iddm);
+                        insert_sanpham($tensanpham,$giagoc,$giakm,$hinh,$ngonngu,$tacgia,$nhaxuatban,$sotrang,$kichthuoc,$mota,$ngayphathanh,$iddmuc);
                         $thongbao="Them thanh cong";
                     }
                     $listdanhmuc=loadall_danhmuc();
@@ -82,35 +89,42 @@
                 case 'listsp':  
                     if(isset($_POST['listok']) && ($_POST['listok'])){
                         $kyw= $_POST['kyw'];
-                        $iddm = $_POST['iddm'];
+                        $iddmuc = $_POST['iddmuc'];
                     }else{
                         $kyw='';
-                        $iddm = 0;
+                        $iddmuc = 0;
                     }
                     $listdanhmuc=loadall_danhmuc(); 
                     $listsanpham=loadall_sanpham_home();
                     include "sanpham/list.php";
                     break;
                 case 'xoasp':
-                    if(isset($_GET['id'])&&($_GET['id']>0)){
-                        delete_sanpham($_GET['id']);
+                    if(isset($_GET['idsp'])&&($_GET['idsp']>0)){
+                        delete_sanpham($_GET['idsp']);
                     }
                     $listsanpham=loadall_sanpham_home();
                     include "sanpham/list.php";
                     break;
                 case 'suasp':
-                    if(isset($_GET['id'])&&($_GET['id']>0)){
-                        $sanpham=loadone_sanpham($_GET['id']);                
+                    if(isset($_GET['idsp'])&&($_GET['idsp']>0)){
+                        $sanpham=loadone_sanpham($_GET['idsp']);                
                     }
                     $listdanhmuc=loadall_danhmuc();
                     include "sanpham/update.php";
                     break;
                 case 'updatesp':
                     if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
-                            $id=$_POST['id'];
-                            $iddm=$_POST['iddm'];
-                            $tensp=$_POST['tensp'];
-                            $giasp=$_POST['giasp'];
+                            $idsp=$_POST['idsp'];
+                            $iddmuc=$_POST['iddmuc'];
+                            $tensanpham=$_POST['tensanpham'];
+                            $giagoc=$_POST['giagoc'];
+                            $giakm=$_POST['giakm'];
+                            $ngonngu=$_POST['ngonngu'];
+                            $tacgia=$_POST['tacgia'];
+                            $nhaxuatban=$_POST['nhaxuatban'];
+                            $sotrang=$_POST['sotrang'];
+                            $kichthuoc=$_POST['kichthuoc'];                       
+                            $ngayphathanh=$_POST['ngayphathanh'];
                             $mota=$_POST['mota'];
                             $hinh=$_FILES['hinh']['name'];
                             $target_dir = "../upload/";
@@ -120,7 +134,7 @@
                             }else{
                                // echo "sorry, there was an error";
                             }
-                        update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinh);
+                            update_sanpham($idsp,$iddmuc,$tensanpham,$giagoc,$giakm,$hinh,$ngonngu,$tacgia,$nhaxuatban,$sotrang,$kichthuoc,$mota,$ngayphathanh);
                         $thongbao="Cập nhật thành công";
                     }
                     $listdanhmuc=loadall_danhmuc();
