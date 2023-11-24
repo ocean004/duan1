@@ -1,6 +1,6 @@
 <?php
 function loadall_danhmuc(){
-    $sql="select * from danhmuc order by iddm asc";
+    $sql="select * from danhmuc order by iddm desc";
     $listdanhmuc=pdo_query($sql);
     return  $listdanhmuc;
 }

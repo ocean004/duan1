@@ -74,27 +74,20 @@
 									</ul>								
 								</li>
 								<li class="megamenu submenu">
-									<a href="#" class="show-submenu-mega">Danh mục</a>
+									<a href="#" class="show-submenu-mega">Sách Nổi Bật</a>
 									<div class="menu-wrapper">
 										<div class="row small-gutters">
-											<div class="col-lg-3">
-												<h3>Sách Trong Nước</h3>
-												<ul>
-													<li><a href="listing-grid-1-full.html">#</a></li>												
-												</ul>
-											</div>
-											<div class="col-lg-3">
-												<h3>Sách Nước Ngoài</h3>
-												<ul>
-													<li><a href="listing-row-1-sidebar-left.html">#</a></li>												
-												</ul>
-											</div>
-											<div class="col-lg-3">
-												<h3>Truyện</h3>
-												<ul>
-													<li><a href="cart.html">#</a></li>													
-												</ul>
-											</div>
+										<?php
+										
+										foreach ($spnew as $sp){
+											extract($sp);
+											echo '<ul>
+											<li><a href="#">'.$tensanpham.'</a></li>
+											
+										</ul>';
+										}
+										?>
+											
 											
 										</div>
 										<!-- /row -->
@@ -123,7 +116,7 @@
 		<!-- /main_header -->
 
 	<?php
-		include_once "view/boxtop.php";
+		include_once "boxtop.php";
 	?>
 		<!-- /main_nav -->
 </header>

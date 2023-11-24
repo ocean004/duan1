@@ -16,10 +16,16 @@
 							</span>
 							<div id="menu">
 								<ul>
-									<li>
-										<span><a href="#">Sách kinh tế</a></span>
-									</li>
-									
+									<?php
+										foreach ($dsdm as $dm){
+											extract($dm);
+											$linkdm = "index.php?act=sanpham&iddmuc=".$iddm;
+											echo '<li>
+											<span><a href="'.$linkdm.'">'.$tendanhmuc.'</a></span>
+											</li>';
+										}
+									?>
+																		
 								</ul>
 							</div>
 						</li>
